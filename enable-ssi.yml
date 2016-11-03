@@ -4,7 +4,7 @@
 
   tasks:
   - name: Add Includes to Options
-    lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^\s\s\s\sOptions\sIndexes\sFollowSymLinks" insertafter="^\s\s\s\sOptions\sIndexes\sFollowSymLinks" line=" + Includes" backrefs=yes
+    lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^\s\s\s\sOptions\sIndexes\sFollowSymLinks" insertafter="^\s\s\s\sOptions\sIndexes\sFollowSymLinks" line="    Options Indexes FollowSymLinks +Includes"
     
   - name: Change AddType shtml to html
     lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^AddType\stext\/html\s\.shtml" state=present line="AddType text/html .html"

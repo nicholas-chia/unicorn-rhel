@@ -14,6 +14,9 @@
       group: "{{ ec2_security_group }}"
       type: "{{ ec2_instance_type }}"
       image: "{{ ec2_image }}"
+      volumes:
+         - device_name: /dev/sda
+           delete_on_termination: true
       region: "{{ ec2_region }}"
       instance_tags: "{'ansible_group':'webservers', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}'}"
       count: "{{ ec2_instance_count }}"
@@ -28,6 +31,9 @@
       group: "{{ ec2_security_group }}"
       type: "{{ ec2_instance_type }}"
       image: "{{ ec2_image }}"
+      volumes:
+         - device_name: /dev/sda
+           delete_on_termination: true
       region: "{{ ec2_region }}"
       instance_tags: "{'ansible_group':'lbservers', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}'}"
       count: "1"
