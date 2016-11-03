@@ -7,7 +7,7 @@
   - name: Add Includes to Options
     inlinefile: dest=/etc/httpd/conf/httpd.conf
     regexp="^\s\s\s\sOptions\sIndexes\sFollowSymLinks"
-    insertafter="^\s\s\s\sOptions\sIndexes\sFollowSymLinks""
+    insertafter="^\s\s\s\sOptions\sIndexes\sFollowSymLinks"
     line=" +Include"
     
   - name: Change AddType shtml to html
