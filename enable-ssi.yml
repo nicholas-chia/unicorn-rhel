@@ -1,6 +1,5 @@
 ---
 # Enable Apache SSI for Web Server Instances
-- name: Enable SSI
 - hosts: tag_ansible_group_webservers
 
   tasks:
