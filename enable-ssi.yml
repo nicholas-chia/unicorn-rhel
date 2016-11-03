@@ -1,0 +1,24 @@
+---
+# Enable Apache SSI for Web Server Instances
+- name: Enable SSI
+- hosts: tag_ansible_group_webservers
+
+  tasks:
+  - name: Add Includes to Options
+    inlinefile: dest=/etc/httpd/conf/httpd.conf
+    regexp="^\s\s\s\sOptions\sIndexes\sFollowSymLinks"
+    insertafter="^\s\s\s\sOptions\sIndexes\sFollowSymLinks""
+    line=" +Include"
+    
+  - name: Change AddType shtml to html
+    inlinefile: dest=/etc/httpd/conf/httpd.conf
+    regexp="^AddType\stext\/html\s\.shtml"
+    state=present
+    line="AddType text/html .html"
+    
+  - name: Change AddOputPutFilter shtml to html
+    inlinefile: dest=/etc/httpd/conf/httpd.conf
+    regexp="^AddOutputFilter\sINCLUDES\s\.shtml"
+    state=present
+    line="AddOutputFilter INCLUDES .html"
+
