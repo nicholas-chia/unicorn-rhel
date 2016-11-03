@@ -5,21 +5,13 @@
 :FORWARD ACCEPT [0:0]
 :OUTPUT ACCEPT [0:0]
 
-{% if (inventory_hostname in groups.tag_ansible_group_webservers) or (inventory_hostname in groups.tag_ansible_group_monitoring) %}
+{% if (inventory_hostname in groups.tag_ansible_group_webservers) %}
 -A INPUT -p tcp  --dport 80 -j ACCEPT
-{% endif %}
-
-{% if (inventory_hostname in groups.tag_ansible_group_dbservers) %}
--A INPUT -p tcp  --dport 3306 -j  ACCEPT
 {% endif %}
 
 {% if (inventory_hostname in groups.tag_ansible_group_lbservers) %}
 -A INPUT -p tcp  --dport {{ listenport }} -j  ACCEPT
 {% endif %}
-
-{% for host in groups.tag_ansible_group_monitoring %}
--A INPUT -p tcp -s {{ hostvars[host].ansible_default_ipv4.address }} --dport 5666 -j ACCEPT
-{% endfor %}
 
 -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 -A INPUT -p icmp -j ACCEPT
