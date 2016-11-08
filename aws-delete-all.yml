@@ -4,7 +4,7 @@
   gather_facts: false 
 
   vars:
-    ec2_region: us-east-1
+    ec2_region: ap-southeast-1
     ec2_hosts: all 
 
   tasks:
