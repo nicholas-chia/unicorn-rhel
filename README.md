@@ -1,9 +1,9 @@
 #unicorn
 
 1. Run 1 - Project Unicorn - Launch AWS Instances needed for Unicorn.
-* Select <Username> Inventory when prompted.
+* Select Username Inventory when prompted.
 2. Run 2 - Project Unicorn: Install Apps and Setup Web Servers
-*Select <Username> Inventory when prompted.
+*Select Username Inventory when prompted.
 3. Run 3 - Project Unicorn: Enable SSI on Apache
 *Select <Username> Inventory when prompted.
 4. Go to Inventory Tab
