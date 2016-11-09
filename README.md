@@ -1,4 +1,4 @@
-# unicorn
+
 
 Run 1 - Project Unicorn - Launch AWS Instances needed for Unicorn.
    Select <Username> Inventory when prompted.
