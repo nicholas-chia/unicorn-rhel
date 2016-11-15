@@ -18,23 +18,28 @@
 - name: Install ntp
   yum: name=ntp state=present
   tags: ntp
+  become: true
 
 - name: Configure ntp file
   template: src=ntp.conf.j2 dest=/etc/ntp.conf
   tags: ntp
   notify: restart ntp
+  become: true
 
 - name: Start the ntp service
   service: name=ntpd state=started enabled=yes
   tags: ntp
+  become: true
 
 # work around RHEL 7, for now
 - name: insert iptables template
   template: src=iptables.j2 dest=/etc/sysconfig/iptables
   when: ansible_distribution_major_version != '7'
   notify: restart iptables
+  become: true
 
 - name: test to see if selinux is running
   command: getenforce
   register: sestatus
   changed_when: false
+  become: true
