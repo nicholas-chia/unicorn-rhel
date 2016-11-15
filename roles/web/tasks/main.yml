@@ -1,3 +1,4 @@
 ---
 - name: Copy the code from repository
   git: repo={{ repository }} dest=/var/www/html/
+  become: true
