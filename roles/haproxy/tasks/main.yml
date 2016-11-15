@@ -4,6 +4,10 @@
 - name: Download and install haproxy
   yum: name=haproxy state=present
   become: true
+  
+- name: Enable haproxy to connect to all TCP ports
+  command: /usr/sbin/setsebool -P haproxy_connect_any 1
+  become: true
 
 - name: Configure the haproxy cnf file with hosts
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
