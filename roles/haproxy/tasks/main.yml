@@ -7,6 +7,8 @@
 - name: Configure the haproxy cnf file with hosts
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
   notify: restart haproxy
+  become: true
 
 - name: Start the haproxy service
   service: name=haproxy state=started enabled=yes
+  become: true
