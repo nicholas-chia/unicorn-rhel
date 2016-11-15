@@ -5,14 +5,16 @@
   tasks:
   - name: Add Includes to Options
     lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^\s\s\s\sOptions\sIndexes\sFollowSymLinks" insertafter="^\s\s\s\sOptions\sIndexes\sFollowSymLinks" line="    Options Indexes FollowSymLinks +Includes"
+    become: true
     
   - name: Change AddType shtml to html
     lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^AddType\stext\/html\s\.shtml" state=present line="AddType text/html .html"
+    become: true
     
   - name: Change AddOutPutFilter shtml to html
     lineinfile: dest=/etc/httpd/conf/httpd.conf regexp="^AddOutputFilter\sINCLUDES\s\.shtml" state=present line="AddOutputFilter INCLUDES .html"
+    become: true
     
   - name: Restart httpd service after the changes
     service: name=httpd state=restarted
-    
-
+    become: true
