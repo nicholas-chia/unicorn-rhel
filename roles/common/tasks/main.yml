@@ -8,7 +8,7 @@
    - libsemanage-python
 
 - name: Create the repository for EPEL
-  copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo
+  copy: src=epel.repo dest=/etc/yum.repos.d/epel.repo owner=root group=root mode=644
 
 - name: Create the GPG key for EPEL
   copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
