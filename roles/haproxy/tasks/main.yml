@@ -3,6 +3,7 @@
 
 - name: Download and install haproxy
   yum: name=haproxy state=present
+  become: true
 
 - name: Configure the haproxy cnf file with hosts
   template: src=haproxy.cfg.j2 dest=/etc/haproxy/haproxy.cfg
