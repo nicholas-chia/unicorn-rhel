@@ -13,6 +13,7 @@
 
 - name: Create the GPG key for EPEL
   copy: src=RPM-GPG-KEY-EPEL-6 dest=/etc/pki/rpm-gpg
+  become: true
 
 - name: Install ntp
   yum: name=ntp state=present
