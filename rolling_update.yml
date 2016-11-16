@@ -16,6 +16,7 @@
     haproxy: 'state=disabled backend=myapplb host={{ inventory_hostname }} socket=/var/lib/haproxy/stats'
     delegate_to: "{{ item }}"
     with_items: groups.tag_ansible_group_lbservers
+    become: true
 
   roles:
   - common
@@ -31,3 +32,4 @@
     haproxy: 'state=enabled backend=myapplb host={{ inventory_hostname }} socket=/var/lib/haproxy/stats'
     delegate_to: "{{ item }}"
     with_items: groups.tag_ansible_group_lbservers
+    become: true
