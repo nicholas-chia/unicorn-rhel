@@ -1,5 +1,7 @@
 #Unicorn-RHEL demo instructions
 
+With your Red Hat email address, join the Ansible Tower Demo Slack Team https://ansibletowerdemo.slack.com and go to #tower_notify channel to see notifications from your demo job runs.
+
 1. Run Job Template __1 - Project Unicorn-RHEL - Launch AWS RHEL7 Instances needed for Unicorn__
    * Select __Username Inventory__ when prompted.
 2. Run Job Template __2 - Project Unicorn-RHEL: Install Apps and Setup Web Servers__
