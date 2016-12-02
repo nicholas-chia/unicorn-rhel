@@ -10,7 +10,7 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
    * Select __Username Inventory__ when prompted.
 4. Go to __Inventory Tab__
    * Select __INVENTORIES / Username INVENTORY / AP-SOUTHEAST-1 / TAGS / TAG_ANSIBLE_GROUP / TAG_ANSIBLE_GROUP_LB__
-   * Copy the __IP Address__ appearing on the left side
+   * Copy the __IP Address__ appearing on the right side (under HOSTS)
    * Paste the __IP Address__ on a new Browser window and __add :8888__ at the end
    * Click Enter to go __HAProxy load-balancer__ webpage at x.x.x.x:8888 
    * __Refresh Browser__ window to see Round-Robin load-balancing in effect (note the IP address changing)
