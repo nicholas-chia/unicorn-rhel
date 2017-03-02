@@ -21,9 +21,9 @@
 
   tasks:
   - name: terminate EC2 hosts
-    ec2: >
+    ec2:
       region="{{ ec2_region }}"
       instance_ids="{{ item }}"
       state=absent
       wait=True
-    with_items: hostvars[inventory_hostname]['ec2_id'] 
+    with_items: hostvars[inventory_hostname]['ec2_id']
