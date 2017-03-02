@@ -26,9 +26,7 @@
 #      instance_ids="{{ item }}"
 #      state=absent
 #      wait=True
-#    with_items: hostvars[inventory_hostname]['ansible_ec2_instance_id']
-  
-  - name: Display all variables/facts known for a host
+#    with_items: hostvars[inventory_hostname]['ansible_ec2_instance_id']  
+  - name: Display all variables and facts known for a host
     debug:
     var: hostvars[inventory_hostname]['ansible_ec2_instance_id']
-    verbosity: 4
