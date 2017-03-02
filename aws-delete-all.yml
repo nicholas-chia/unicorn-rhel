@@ -26,4 +26,4 @@
       instance_ids="{{ item }}"
       state=absent
       wait=True
-    with_items: hostvars[inventory_hostname]['ansible_ec2_id'] 
+    with_items: hostvars[inventory_hostname]['ec2_id'] 
