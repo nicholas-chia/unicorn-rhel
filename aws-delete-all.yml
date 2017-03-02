@@ -28,6 +28,5 @@
 #      wait=True
 #    with_items: hostvars[inventory_hostname]['ansible_ec2_instance_id']  
    - name: Display all variables and facts known for a host
-     debug:
-     var: hostvars[inventory_hostname]['ansible_ec2_instance_id']
-     with_items: hostvars[inventory_hostname]['ansible_ec2_instance_id']
+     debug: var=hostvars[item]
+     with_items: "{{groups['all']}}"
