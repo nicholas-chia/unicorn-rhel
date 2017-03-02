@@ -12,11 +12,7 @@
 
   # These are the tasks to run before applying updates:
   - name: disable the server in haproxy
-    haproxy: 
-      state: disabled 
-      backend: myapplb 
-      host: "{{ inventory_hostname }}" 
-      socket: /var/lib/haproxy/stats
+    haproxy: state: disabled backend: myapplb host: "{{ inventory_hostname }}" socket: /var/lib/haproxy/stats
     delegate_to: "{{ item }}"
     with_items: groups.tag_ansible_group_lbservers
 
