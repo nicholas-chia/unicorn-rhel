@@ -20,13 +20,10 @@
     ec2_hosts: all
 
   tasks:
-#  - name: terminate EC2 hosts
-#    ec2: >
-#      region="{{ ec2_region }}"
-#      instance_ids="{{ item }}"
-#      state=absent
-#      wait=True
-#    with_items: hostvars[inventory_hostname]['ansible_ec2_instance_id']  
-   - name: Display all variables and facts known for a host
-     debug: var=hostvars[item]
-     with_items: "{{groups['all']}}"
+  - name: terminate EC2 hosts
+    ec2: >
+      region="{{ ec2_region }}"
+      instance_ids="{{ item }}"
+      state=absent
+      wait=True
+    with_items: hostvars[inventory_hostname]['ansible_ec2_instance_id'] 
