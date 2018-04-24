@@ -19,7 +19,7 @@
            volume_size: 10
            delete_on_termination: true
       region: "{{ ec2_region }}"
-      instance_tags: "{'ansible_group':'webservers', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}'}"
+      instance_tags: "{'ansible_group':'web', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}'}"
       count: "{{ ec2_instance_count }}"
       wait: true
     register: ec2
