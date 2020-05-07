@@ -24,7 +24,7 @@ Using Angine Engine:
 2. ssh-add ~/.ssh/ssh_key_pair.pem
 3. ansible-playbook aws-launch.yml -e @extra_vars.yml -vvv
 4. ansible-playbook -i aws_ec2.yml configure.yml -e @extra_vars.yml -vvv
-5. ansible-playbook -i aws_ec2.yml eanble-ssi.yml -e @extra_vars.yml -vvv
+5. ansible-playbook -i aws_ec2.yml enable-ssi.yml -e @extra_vars.yml -vvv
 6. ansible-playbook -i aws_ec2.yml deploy-app.yml -e @extra_vars.yml -vvv
 7. ansible-playbook -i aws_ec2.yml rolling-update.yml -e @extra_vars.yml -vvv
 8. ansible-playbook -i aws_ec2.yml aws-delete-all.yml -e @extra_vars.yml -vvv
