@@ -7,7 +7,7 @@
 # will be applied as part of the rolling update process.
 #
 
-- hosts: tag_ansible_group_webservers
+- hosts: tags_ansible_group_web
   serial: 1
 
   # These are the tasks to run before applying updates:
@@ -15,10 +15,9 @@
     haproxy: 
       state: disabled backend: myapplb host: {{ inventory_hostname }} socket: /var/lib/haproxy/stats
     delegate_to: "{{ item }}"
-    with_items: groups.tag_ansible_group_lbservers
+    with_items: groups.tags_ansible_group_lb
 
   roles:
-  - common
   - base-apache
   - web
 
@@ -34,4 +33,4 @@
       host: "{{ inventory_hostname }}" 
       socket: /var/lib/haproxy/stats'
     delegate_to: "{{ item }}"
-    with_items: groups.tag_ansible_group_lbservers
+    with_items: groups.tags_ansible_group_lb

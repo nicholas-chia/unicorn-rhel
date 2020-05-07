@@ -1,0 +1,42 @@
+---
+# Variables here are applicable to all host groups
+httpd_port: 80
+ansible_user: ec2-user
+
+# AWS specific variables
+ec2_access_key:
+ec2_secret_key:
+ec2_region: ap-southeast-1
+ec2_zone: ap-southeast-1a
+# Using Cloud Access RHEL-7.0_HVM_GA-20141017-x86_64-1-Hourly2-GP2
+ec2_image: ami-941031c6
+ec2_instance_type: m1.small
+ec2_keypair: nicholasc
+ec2_security_group: default
+ec2_instance_count: 1
+ec2_tag: demo
+ec2_tag_name_prefix: nicholas
+ec2_hosts: all
+wait_for_port: 22
+
+# Variables for the HAproxy configuration
+mode: http
+# Port on which HAProxy should listen
+listenport: 8888
+# A name for the proxy daemon, this wil be the suffix in the logs.
+daemonname: myapplb
+# Balancing Algorithm. Available options:
+# roundrobin, source, leastconn, source, uri
+# (if persistance is required use, "source")
+balance: roundrobin 
+# Ethernet interface on which the load balancer should listen
+# Defaults to the first interface. Change this to:
+#
+#  iface: eth1
+#
+# ...to override.
+#
+iface: '{{ ansible_default_ipv4.interface }}'
+
+# This user name will be set by Tower, when run through Tower
+tower_user_name: admin

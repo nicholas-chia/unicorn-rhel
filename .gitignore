@@ -1,0 +1,4 @@
+myVaultFile
+extra_vars.yml
+hosts
+aws_ec2.yml

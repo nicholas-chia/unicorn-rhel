@@ -24,6 +24,29 @@
       count: "{{ ec2_instance_count }}"
       wait: true
     register: ec2
+    tags:
+      - web
+
+  - name: Launch HAProxy instance
+    ec2:
+      access_key: "{{ ec2_access_key }}"
+      secret_key: "{{ ec2_secret_key }}"
+      keypair: "{{ ec2_keypair }}"
+      group: "{{ ec2_security_group }}"
+      type: "{{ ec2_instance_type }}"
+      image: "{{ ec2_image }}"
+      volumes:
+         - device_name: /dev/sda1
+           volume_type: gp2
+           volume_size: 10
+           delete_on_termination: true
+      region: "{{ ec2_region }}"
+      instance_tags: "{'ansible_group':'lb', 'type':'{{ ec2_instance_type }}', 'group':'{{ ec2_security_group }}', 'Name':'demo_''{{ tower_user_name }}'}"
+      count: 1
+      wait: true
+    register: ec2
+    tags:
+      - haproxy  
 
   - name: Wait for SSH to come up
     wait_for:

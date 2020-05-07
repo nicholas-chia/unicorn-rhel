@@ -1,0 +1,29 @@
+- name: Setup AOT Demo Managed Nodes
+  hosts: all
+  become: true
+  become_user: root
+  gather_facts: false
+
+  tasks:
+    - name: Register as user with password and subscribe
+      redhat_subscription:
+        state: present
+        pool: '^Red Hat Enterprise Linux Server$'
+        username: "{{ rhn_user }}"
+        password: "{{ rhn_pass }}"
+        auto_attach: true
+        force_register: true
+      tags:
+        - subscribe
+
+    - name: Install Insights Client to Managed Nodes
+      yum:
+        name: insights-client
+        state: latest
+      tags:
+        - insights
+
+    - name: Register Insights Client(s) to cloud.redhat.com
+      command: insights-client --register --display-name="{{ display_name }}"
+      tags:
+        - insights

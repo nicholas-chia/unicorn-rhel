@@ -1,0 +1,25 @@
+---
+## This playbook deploys the haproxy and webservers to this site.
+
+# Configure and deploy the web servers. Note that we include two roles here,
+# the 'base-apache' role which simply sets up Apache, and 'web' which includes
+# our example web application.
+- name: Deploy applications
+  hosts: tags_ansible_group_web
+  become: true
+
+  roles:
+  - base-apache
+  - web
+  
+  tags:
+    - web
+
+# Configure and deploy the HAProxy load balancer.
+- hosts: tags_ansible_group_lb
+
+  roles:
+  - haproxy
+  
+  tags:
+  - lb
