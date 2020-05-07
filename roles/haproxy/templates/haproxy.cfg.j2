@@ -8,8 +8,7 @@ global
     group       root
     daemon
 
-    # turn on stats unix socket
-    stats socket /var/lib/haproxy/stats level admin
+
 
 defaults
     mode                    {{ mode }}
@@ -31,9 +30,9 @@ defaults
 
 backend app
     {% for host in groups.tags_ansible_group_lb %}
-    listen {{ daemonname }} 0.0.0.0:{{ listenport }}
+        listen {{ daemonname }} 0.0.0.0:{{ listenport }}
     {% endfor %}
     balance     {{ balance }}
     {% for host in groups.tags_ansible_group_web %}
-    server {{ host }} {{ hostvars[host].private_ip_address }}:{{ httpd_port }}
+        server {{ host }} {{ hostvars[host].private_ip_address }}:{{ httpd_port }}
     {% endfor %}
