@@ -31,15 +31,17 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
 
 # Sample extra-vars.yml
 
-```#aws
+```
+# aws
 ec2_access_key: ChangeMe
 ec2_secret_key: ChangeMe
-#web servers instance count
+# web servers instance count
 ec2_instance_count: 2
-#rh subscription manager
+# rh subscription manager
 rhn_user: ChangeMe
 rhn_pass: ChangeMe
-#rh insights
+# rh insights
 display_name: ChangeMe
-#web page
-repository: ChangeMe```
+# web page
+repository: ChangeMe
+```
