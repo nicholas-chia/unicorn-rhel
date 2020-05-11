@@ -31,9 +31,9 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
 
 # Sample extra-vars.yml
 
-`#aws`
+`#aws
 
-ec2_access_key: ChangeMe
+ec2_access_key: ChangeMe`
 
 ec2_secret_key: ChangeMe
 
