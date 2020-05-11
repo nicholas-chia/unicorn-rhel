@@ -44,6 +44,7 @@ ec2_instance_count: 2
 #rh subscription manager
 
 rhn_user: ChangeMe
+
 rhn_pass: ChangeMe
 
 #rh insights
