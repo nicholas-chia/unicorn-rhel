@@ -21,7 +21,7 @@
       host: "{{ inventory_hostname }}"
       socket: /var/lib/haproxy/stats
     delegate_to: "{{ item }}"
-    with_items: "{{ groups.tags_ansible_group_lb }}"
+    with_items: "{{ groups.tag_ansible_group_lb }}"
 
   roles:
   - base-apache
@@ -39,5 +39,5 @@
       host: "{{ inventory_hostname }}" 
       socket: /var/lib/haproxy/stats
     delegate_to: "{{ item }}"
-    with_items: "{{ groups.tags_ansible_group_lb }}"
+    with_items: "{{ groups.tag_ansible_group_lb }}"
 
