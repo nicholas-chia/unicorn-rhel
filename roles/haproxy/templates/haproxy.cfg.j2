@@ -35,5 +35,9 @@ backend app
     {% endfor %}
     balance {{ balance }}
     {% for host in groups.tag_ansible_group_web %}
-    server {{ host }} {{ hostvars[host].private_ip_address }}:{{ httpd_port }}
+    {% if {{ hostvars[host].private_ip_address }} is defined %}
+        server {{ host }} {{ hostvars[host].private_ip_address }}:{{ httpd_port }}
+    {% else %}
+        server {{ host }} {{ hostvars[host]['ansible_' + iface].ipv4.address }}:{{ httpd_port }}
+    {% endif %}
     {% endfor %}
