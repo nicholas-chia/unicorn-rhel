@@ -29,20 +29,20 @@ Using Angine Engine:
 7. ansible-playbook -i aws_ec2.yml rolling-update.yml -e @extra_vars.yml -vvv
 8. ansible-playbook -i aws_ec2.yml aws-delete-all.yml -e @extra_vars.yml -vvv
 
-`<Sample extra-vars.yml
-# aws
+Sample extra-vars.yml
+#aws
 ec2_access_key: ChangeMe
 ec2_secret_key: ChangeMe
 
-# web servers instance count
+#web servers instance count
 ec2_instance_count: 2
 
-# rh subscription manager
+#rh subscription manager
 rhn_user: ChangeMe
 rhn_pass: ChangeMe
 
-# rh insights
+#rh insights
 display_name: ChangeMe
 
-# web page
+#web page
 repository: ChangeMe>`
