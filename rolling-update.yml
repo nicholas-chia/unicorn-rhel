@@ -40,4 +40,3 @@
       socket: /var/lib/haproxy/stats
     delegate_to: "{{ item }}"
     with_items: "{{ groups.tag_ansible_group_lb }}"
-
