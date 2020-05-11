@@ -29,7 +29,7 @@ Using Angine Engine:
 7. ansible-playbook -i aws_ec2.yml rolling-update.yml -e @extra_vars.yml -vvv
 8. ansible-playbook -i aws_ec2.yml aws-delete-all.yml -e @extra_vars.yml -vvv
 
-Sample extra-vars.yml
+`Sample extra-vars.yml
 # aws
 ec2_access_key: ChangeMe
 ec2_secret_key: ChangeMe
@@ -45,4 +45,4 @@ rhn_pass: ChangeMe
 display_name: ChangeMe
 
 # web page
-repository: ChangeMe
+repository: ChangeMe`
