@@ -1,4 +1,4 @@
-#Unicorn-RHEL demo instructions
+# Unicorn-RHEL demo instructions
 
 With your Red Hat email address, join the Ansible Tower Demo Slack Team https://ansibletowerdemo.slack.com and go to #tower_notify channel to see notifications from your demo job runs.
 
@@ -18,7 +18,7 @@ With your Red Hat email address, join the Ansible Tower Demo Slack Team https://
    * __Refresh Browser__ window to check progress of rolling update
 6. Run Job Template __5 - Project Unicorn-RHEL: Delete all AWS RHEL Instances__
 
-Using Angine Engine:
+# Using Angine Engine
 
 1. eval "$(ssh-agent -s)"
 2. ssh-add ~/.ssh/ssh_key_pair.pem
@@ -29,20 +29,17 @@ Using Angine Engine:
 7. ansible-playbook -i aws_ec2.yml rolling-update.yml -e @extra_vars.yml -vvv
 8. ansible-playbook -i aws_ec2.yml aws-delete-all.yml -e @extra_vars.yml -vvv
 
-Sample extra-vars.yml
+# Sample extra-vars.yml
+
 #aws
 ec2_access_key: ChangeMe
 ec2_secret_key: ChangeMe
-
 #web servers instance count
 ec2_instance_count: 2
-
 #rh subscription manager
 rhn_user: ChangeMe
 rhn_pass: ChangeMe
-
 #rh insights
 display_name: ChangeMe
-
 #web page
 repository: ChangeMe>`
