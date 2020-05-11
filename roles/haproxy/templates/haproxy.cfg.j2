@@ -34,6 +34,6 @@ backend app
     listen {{ daemonname }} 0.0.0.0:{{ listenport }}
     {% endfor %}
     balance {{ balance }}
-    {% for host in groups.tags_ansible_group_web %}
+    {% for host in groups.tag_ansible_group_web %}
     server {{ host }} {{ hostvars[host].private_ip_address }}:{{ httpd_port }}
     {% endfor %}
