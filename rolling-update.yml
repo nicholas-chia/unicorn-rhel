@@ -7,7 +7,7 @@
 # will be applied as part of the rolling update process.
 #
 
-- hosts: tags_ansible_group_web
+- hosts: tag_ansible_group_web
   gather_facts: false
   serial: 1
   become: true

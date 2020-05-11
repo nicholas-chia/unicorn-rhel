@@ -5,7 +5,7 @@
 # the 'base-apache' role which simply sets up Apache, and 'web' which includes
 # our example web application.
 - name: Deploy applications
-  hosts: tags_ansible_group_web
+  hosts: tag_ansible_group_web
   become: true
 
   roles:
@@ -16,7 +16,7 @@
     - web
 
 # Configure and deploy the HAProxy load balancer.
-- hosts: tags_ansible_group_lb
+- hosts: tag_ansible_group_lb
 
   roles:
   - haproxy
